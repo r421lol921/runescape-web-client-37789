@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function GameClient() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
