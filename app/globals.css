@@ -1,46 +1,50 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+@layer base {
+  :root {
+    --font-sans: 'Inter', 'Inter Fallback', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
-  /* PeytOtoria Color System */
-  --color-background: #1a1a1a;
-  --color-surface: #242424;
-  --color-surface-elevated: #2e2e2e;
-  --color-border: #3a3a3a;
-  --color-foreground: #f0ede8;
-  --color-muted: #8a8480;
-  --color-brand: #c8a96e;
-  --color-brand-dim: #a8894e;
-  --color-accent: #e8c97e;
-  --color-danger: #e05c5c;
-  --color-success: #5cb85c;
+    /* PeytOtoria Color System */
+    --color-background: #1a1a1a;
+    --color-surface: #242424;
+    --color-surface-elevated: #2e2e2e;
+    --color-border: #3a3a3a;
+    --color-foreground: #f0ede8;
+    --color-muted: #8a8480;
+    --color-brand: #c8a96e;
+    --color-brand-dim: #a8894e;
+    --color-accent: #e8c97e;
+    --color-danger: #e05c5c;
+    --color-success: #5cb85c;
 
-  --radius: 0.5rem;
-}
+    --radius: 0.5rem;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-}
+  html {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
 
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+  }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px #2e2e2e inset;
-  -webkit-text-fill-color: #f0ede8;
-  transition: background-color 5000s ease-in-out 0s;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #2e2e2e inset;
+    -webkit-text-fill-color: #f0ede8;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }

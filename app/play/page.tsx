@@ -22,14 +22,16 @@ export default async function PlayPage() {
     profile?.username ?? user.user_metadata?.username ?? user.email?.split("@")[0] ?? "Adventurer";
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a]">
+    <div className="h-screen bg-[#1a1a1a] flex flex-col">
       <Navbar username={username} />
-      <main className="flex flex-col items-center justify-start py-6 px-4">
-        <div className="flex flex-col gap-4 w-full max-w-[800px]">
-          <div className="flex items-center justify-between">
-            <h1 className="text-lg font-bold text-[#f0ede8]">Playing as <span className="text-[#c8a96e]">{username}</span></h1>
+      <main className="flex-1 overflow-hidden">
+        <div className="w-full h-full flex flex-col">
+          <div className="px-4 py-2 border-b border-[#3a3a3a] bg-[#242424]">
+            <h1 className="text-sm font-semibold text-[#f0ede8]">Playing as <span className="text-[#c8a96e]">{username}</span></h1>
           </div>
-          <GameClient />
+          <div className="flex-1 overflow-hidden">
+            <GameClient />
+          </div>
         </div>
       </main>
     </div>
