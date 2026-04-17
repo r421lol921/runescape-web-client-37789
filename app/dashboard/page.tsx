@@ -9,6 +9,19 @@ interface SkillData {
   xp: number;
 }
 
+function computeCombatLevel(stats: Record<string, number>): number {
+  const base =
+    0.25 *
+    ((stats.defence_level ?? 1) +
+      (stats.hitpoints_level ?? 10) +
+      Math.floor((stats.prayer_level ?? 1) / 2));
+  const melee =
+    (13 / 40) * ((stats.attack_level ?? 1) + (stats.strength_level ?? 1));
+  const ranged = (13 / 40) * Math.floor((1.5 * (stats.ranged_level ?? 1)));
+  const magic = (13 / 40) * Math.floor((1.5 * (stats.magic_level ?? 1)));
+  return Math.floor(base + Math.max(melee, ranged, magic));
+}
+
 export default async function DashboardPage() {
   const supabase = await createClient();
 
@@ -25,27 +38,32 @@ export default async function DashboardPage() {
     .eq("id", user.id)
     .single();
 
-  // Fetch stats
+  // Fetch flat stats columns from DB
   const { data: stats } = await supabase
     .from("player_stats")
-    .select("total_level, total_xp, combat_level, skills")
+    .select("*")
     .eq("user_id", user.id)
     .single();
 
-  const skills = (stats?.skills ?? {}) as Record<string, SkillData>;
+  // Map flat DB columns → skills object expected by StatsGrid
+  const SKILL_KEYS = [
+    "attack", "hitpoints", "mining", "strength", "agility", "smithing",
+    "defence", "herblore", "fishing", "ranged", "thieving", "cooking",
+    "prayer", "crafting", "firemaking", "magic", "fletching", "woodcutting",
+    "runecraft", "slayer", "farming", "construction", "hunter",
+  ] as const;
 
-  // Calculate totals from skills if not pre-computed
-  const totalLevel =
-    stats?.total_level && stats.total_level > 0
-      ? stats.total_level
-      : Object.values(skills).reduce((sum, s) => sum + (s?.level ?? 1), 0);
+  const skills: Record<string, SkillData> = {};
+  for (const key of SKILL_KEYS) {
+    skills[key] = {
+      level: (stats as Record<string, number> | null)?.[`${key}_level`] ?? (key === "hitpoints" ? 10 : 1),
+      xp: (stats as Record<string, number> | null)?.[`${key}_xp`] ?? (key === "hitpoints" ? 1154 : 0),
+    };
+  }
 
-  const totalXp =
-    stats?.total_xp && stats.total_xp > 0
-      ? stats.total_xp
-      : Object.values(skills).reduce((sum, s) => sum + (s?.xp ?? 0), 0);
-
-  const combatLevel = stats?.combat_level ?? 3;
+  const totalLevel = stats?.total_level ?? SKILL_KEYS.length;
+  const totalXp = stats?.total_xp ?? 1154;
+  const combatLevel = computeCombatLevel(stats as Record<string, number> ?? {});
 
   const username =
     profile?.username ?? user.user_metadata?.username ?? user.email?.split("@")[0] ?? "Adventurer";
