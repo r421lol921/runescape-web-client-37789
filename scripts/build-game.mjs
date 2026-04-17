@@ -57,7 +57,7 @@ const cacheGlobPlugin = {
   },
 };
 
-// Entry point — create a minimal bootstrap that wires up the canvas and starts the game
+// Entry point — written into the project root so relative imports resolve correctly
 const entryContent = `
 import { Game } from "./osrs/Game";
 
@@ -70,7 +70,8 @@ const game = new Game(canvas);
 game.initializeApplication(765, 503);
 `;
 
-const entryPath = path.join(root, "scripts", "_game_entry.ts");
+// Write entry at root so "./osrs/Game" resolves correctly
+const entryPath = path.join(root, "_game_entry.ts");
 fs.writeFileSync(entryPath, entryContent);
 
 console.log("Building game bundle...");
@@ -85,6 +86,7 @@ try {
     format: "iife",
     plugins: [cacheGlobPlugin],
     tsconfig: path.join(root, "tsconfig.json"),
+    absWorkingDir: root,
     define: {
       "module.hot": "undefined",
     },
@@ -96,6 +98,5 @@ try {
   console.error("Build failed:", err.message);
   process.exit(1);
 } finally {
-  // Clean up temp entry file
   fs.unlinkSync(entryPath);
 }
