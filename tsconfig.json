@@ -11,7 +11,8 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
+    "ignoreDeprecations": "5.0",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -27,15 +28,22 @@
       ]
     },
     "target": "ES2017",
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowArbitraryExtensions": true
   },
   "include": [
     "next-env.d.ts",
+    "globals.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "osrs",
+    "page",
+    "dist",
+    "client_cache",
+    "wasm"
   ]
 }
