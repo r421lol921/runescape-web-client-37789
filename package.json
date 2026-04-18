@@ -6,20 +6,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "dev-parcel": "parcel serve index.html",
-    "build-parcel": "parcel build index.html",
-    "build-hard": "rm -rf dist && parcel build index.html --no-source-maps",
-    "test": "jest",
-    "rs-test": "ts-jest",
-    "setup-js-build": "cp -r client_cache dist/ts && cp -r wasm dist/ts && cp index.html dist/ts",
-    "test-watch": "jest --watch"
+    "start": "next start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hot-loader/react-dom": "^16.13.0",
-    "@material-ui/core": "^4.11.0",
     "@stardazed/zlib": "^1.0.1",
     "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.103.3",
@@ -40,27 +31,13 @@
     "postcss": "^8.5.10",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-hot-loader": "^4.12.21",
     "tailwindcss": "^4.2.2",
     "ws": "^7.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "@types/jest": "^24.9.1",
     "@types/node": "^12.12.58",
-    "@types/parcel-env": "0.0.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@types/react-hot-loader": "^4.1.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^24.9.0",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-wasm.rs": "^1.2.16",
-    "rs-jest": "^1.1.0",
-    "serve": "^11.3.2",
-    "ts-jest": "^24.3.0",
     "typescript": "^6.0.3"
   }
 }
