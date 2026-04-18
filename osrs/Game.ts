@@ -1,5 +1,5 @@
-import cacheData from "./../client_cache/*.dat";
-import cacheIndices from "./../client_cache/*.idx*";
+const cacheData = { main_file_cache: "/client_cache/main_file_cache.dat" };
+const cacheIndices = { main_file_cache: ["/client_cache/main_file_cache.idx0", "/client_cache/main_file_cache.idx1", "/client_cache/main_file_cache.idx2", "/client_cache/main_file_cache.idx3", "/client_cache/main_file_cache.idx4"] };
 import { Index } from "./cache/Index";
 import { Archive } from "./cache/Archive";
 import { TypeFace } from "./cache/media/TypeFace";
@@ -59,7 +59,7 @@ import { Actor } from "./media/renderable/actor/Actor";
 import { SkillConstants } from "./util/SkillConstants";
 import { ChatEncoder } from "./util/ChatEncoder";
 import { Actions } from "./Actions";
-import { tsMethodSignature } from "@babel/types";
+
 import { ParallelExecutor, sleep } from "./ParallelExecutor";
 import { array3d, array2d } from "./Arrays";
 import Long from "long";

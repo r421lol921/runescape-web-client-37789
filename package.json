@@ -23,6 +23,7 @@
     "axios": "^0.19.2",
     "big-integer": "^1.6.48",
     "cyclic-32": "^1.1.0",
+    "image-pixels": "^2.2.2",
     "isaac-crypto": "^2.0.4",
     "jpeg-js": "^0.3.7",
     "long": "^4.0.0",
