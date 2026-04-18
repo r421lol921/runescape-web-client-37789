@@ -9,7 +9,7 @@ import { OnDemandRequester } from "../net/requester/OnDemandRequester";
 import { Scene } from "./Scene";
 import { CollisionMap } from "./util/CollisionMap";
 import { TiledUtils } from "./util/TiledUtils";
-import { noise } from "../../wasm/src/lib.rs";
+import { noise } from "../../wasm/src/lib";
 
 export class Region {
     public static hueRandomizer: number = (((Math.random() * 17.0) as number) | 0) - 8;

@@ -1,6 +1,6 @@
-import cacheData from "./../client_cache/*.dat";
-import cacheIndices from "./../client_cache/*.idx*";
-import { rs_encrypt_bytes } from "./../wasm/src/lib.rs";
+const cacheData = { main_file_cache: "/client_cache/main_file_cache.dat" };
+const cacheIndices = { main_file_cache: ["/client_cache/main_file_cache.idx0", "/client_cache/main_file_cache.idx1", "/client_cache/main_file_cache.idx2", "/client_cache/main_file_cache.idx3", "/client_cache/main_file_cache.idx4"] };
+import { rs_encrypt_bytes } from "./../wasm/src/lib";
 import { Index } from "./cache/Index";
 import { Archive } from "./cache/Archive";
 import pixels from "image-pixels";

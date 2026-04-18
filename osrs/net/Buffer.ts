@@ -2,7 +2,7 @@ import { CacheableNode } from "../collection/CacheableNode";
 import { LinkedList } from "../util/LinkedList";
 import { ISAACCipher } from "./ISAACCipher";
 import bigInt from "big-integer";
-import { rs_encrypt_bytes } from "../../wasm/src/lib.rs";
+import { rs_encrypt_bytes } from "../../wasm/src/lib";
 import { Configuration } from "../Configuration";
 import Long from "long";
 

@@ -1,4 +1,4 @@
-import { rs_hash_string } from "./../../wasm/src/lib.rs";
+import { rs_hash_string } from "./../../wasm/src/lib";
 import Long from "long";
 
 export class TextUtils {
