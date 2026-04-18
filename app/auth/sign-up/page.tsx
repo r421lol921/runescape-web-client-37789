@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
@@ -54,7 +53,7 @@ export default function SignUpPage() {
       <div className="w-full max-w-sm">
         {/* Logo + title */}
         <div className="flex flex-col items-center gap-3 mb-8">
-          <Image src="/logo.png" alt="PeytOtoria logo" width={72} height={72} />
+          <div className="w-16 h-16 rounded-2xl bg-[#c8a96e] flex items-center justify-center text-[#1a1a1a] font-bold text-2xl select-none">P</div>
           <h1 className="text-2xl font-bold text-[#f0ede8] tracking-tight">PeytOtoria</h1>
           <p className="text-sm text-[#8a8480]">Create your account</p>
         </div>
